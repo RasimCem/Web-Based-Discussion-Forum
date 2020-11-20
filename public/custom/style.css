@@ -7,6 +7,7 @@
 html {
     font-size: 15px;
     letter-spacing: .1rem;
+    scroll-behavior: smooth;
 }
 ul{
     list-style: none;   
@@ -27,20 +28,26 @@ a{
     width: 70%;
     margin: auto auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items:center;
+    justify-content:center;
+}
+@media screen and  (max-width: 750px){
+    .items{
+        width: 80%;
+    }
 }
 .item{
     margin: 7px 12px;
     padding: 8px;
     color:#fff;
+    text-align: center;
     letter-spacing: .2rem;
     cursor: pointer;
     font-size: 1.3rem;
 }
 .item:hover, .dropdownitem:hover{
     color: #fff;
-    background-color: #5C8C51;
+    background-color: green;
     border-radius: 5px;
     transition: .7s;
 }
@@ -73,6 +80,7 @@ a{
 }
 .right{
     margin-left: auto;
+    display: flex;
 }
 .user-img{
     width: 35px;
@@ -82,7 +90,7 @@ a{
 .toggle{
     display: none;
 }
-/* responsive icin */
+/* NAVBAR responsive icin */
 @media screen and  (max-width: 992px){
     html{
         font-size: 13px;
@@ -99,7 +107,7 @@ a{
         display: block;
     }
     html{
-        font-size: 11px;
+        font-size: 12px;
     }
 }
 @media screen and  (min-width: 670px){
@@ -152,7 +160,7 @@ a{
     }
     .social{
         width: 100% !important;
-       text-align: center;
+        text-align: center;
     }
     .footer-items{
         margin-top: 10px;
@@ -218,6 +226,7 @@ a{
 .entry{
     margin-top: 25px;
     margin-left: 7px;
+    padding: 5px;
     border-bottom: 1px solid gray;
 }
 .entry h3 {
@@ -271,4 +280,229 @@ a{
 }
 .social-item:hover, .footer-items a:hover{
     color: #A0D993;
+}
+
+
+/* PROFILE PAGE CSS */
+.profile, .newEntry{
+    margin:55px auto;
+    width: 70%;
+}
+.profile-title, .newEntry-title{
+   margin: 12px;
+   font-size: 1.7rem;
+   text-transform: uppercase;
+   font-weight: bold;
+   color: #AE6B83;
+}
+.profile-page, .newEntry-page{
+   height: auto;
+    border: 1px solid #D9D9D9;
+    box-shadow: 2px 2px 5px;
+    padding: 35px;
+    text-align: center;
+}
+.profile-img{
+   width:120px;
+  border-radius: 50%;
+}
+.profile-detail, .modal-form-input {
+   width:80%;
+   margin:25px auto;
+   display: flex;
+}
+.profile-detail label, .modal-form-input label{
+   width: 30%;
+   font-weight: bold;
+   font-size: 1rem !important;
+   color: #454545;
+}
+.profile-detail input, .modal-form-input input, .profile-detail select, .profile-detail textarea{
+    width: 70%;
+    outline: none;
+    border: 1px solid #AE6B83;
+    padding:3px 10px 3px;
+    border-radius: 5px;
+    border: 2px solid lightgreen;
+}
+.correct{
+   color: green;
+    font-size: 1.3rem;
+    position: relative;
+    top: 7px;
+    right:25px;
+}
+.error{
+   color: red;
+   font-size: 1.3rem;
+    position: relative;
+    top: 7px;
+    right:25px;
+}
+.table th{
+   background-color: #45AA6A;
+   color:#fff;
+}
+.profile-extra{
+   text-align: center;
+   font-size: 1.4rem;
+   width: 15%;
+   color:#8A6B83;
+   margin:50px auto;
+}
+.profile-extra a{
+   display: block;
+   margin: 20px;
+   transition: .3s;
+   border-radius: 10px;
+}
+.profile-extra a:hover{
+    cursor: pointer;
+    color: #fff !important;
+    background-color: #8A6B83;
+}
+@media screen and (max-width: 750px){
+   .profile, .newEntry{
+       width: 90%;
+   }
+   .profile-page{
+       padding: 10px;
+   }
+   .profile-extra{
+       width: 50%;
+   }
+}
+/* CATEGORY */
+.entry small{
+    float: right;
+    font-size: .9rem;
+    color: grey;
+}
+
+ /* ENTRY BLADE CSS  */
+.entry-container{
+    margin: 15px;
+    width: 80%;
+    padding: 30px;
+}
+@media screen and  (max-width: 1650px){
+     .entry-container{
+         width: 90%;
+     }
+ }
+ @media screen and  (max-width: 1050px){
+    .entry-container{
+        width: 95%;
+    }
+}
+.entry-container h2{
+    border-bottom: 1px solid green;
+    padding:5px 20px;
+}
+.entry-box{
+    padding: 15px;
+    border-bottom: 1px solid purple;
+}
+.entry-author{
+    margin: 3px;
+    font-weight: bold;
+    color: purple;
+}
+.entry-box:nth-of-type(1) .entry-author{
+    color: green;
+}
+.entry-box:nth-of-type(1) {
+     background-color: #CDFDD4;
+     border-radius: 7px;
+}
+.entry-box:not(:nth-of-type(1)) {
+     /* background-color: #E8C5D4; */
+     border-radius: 5px;
+}
+.entry-content {
+    font-size:1.1rem;
+    text-indent: 2rem;
+    padding-left: 1rem;
+}
+.clearfix::after {
+     content: "";
+     clear: both;
+     display: table;
+}
+.entry-box .left{
+ float: left;
+ text-align: center;
+ padding: 5px;
+}
+.entry-date{
+ display: block;
+ margin-top: 10px;
+}
+@media screen and  (max-width: 750px){
+    .entry-box div{
+        padding-right: 1rem;
+   }
+}
+/* SignIn SignUp  */
+
+.myModal{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:30%;
+    height: auto;
+    z-index: 99;
+   background-color: #F5F5F5;
+   padding: 20px;
+  box-shadow: 0px 4px 8px 0px  gray ;
+  border-radius: 15px;
+}
+@media screen and  (max-width: 1500px){
+  .myModal{
+      width: 50%;
+  }
+}
+@media screen and  (max-width: 850PX){
+  .myModal{
+      width: 70%;
+  }
+}
+.exit-modal{
+  float: right;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.modal-selection{
+      text-align: center;
+}
+.modal-selection button{
+    margin: 15px auto;
+}
+.modal-contents{
+    padding: 15px;
+}
+.modal-contents input[type="submit"]{
+      display: block;
+      margin: 55px auto;
+      width: 60%;
+}
+.signIn{
+      display: block;
+      animation: slow .5s;
+}
+.signIn form{
+    margin-top: 50px;
+}
+.signUp{
+      display: none;
+      animation: slow .5s;
+}
+@keyframes slow {
+      0%   {opacity: .3}
+      25%  {opacity: .5}
+      50%  {opacity: .7}
+      75%  {opacity: .9}
+      100% {opacity: 1}
 }

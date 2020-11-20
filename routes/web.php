@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FrontController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+})->name('home');
+Route::get('/profile', function () {
+    return view('profile');
 });
+ Route::get('/category', function () {
+    return view('category');
+});
+
+Route::get('/entry', function () {
+    return view('entry');
+});
+// FRONT ENTRY
+Route::get('new', [FrontController::class, 'showEntry'])->name('newEntry');
+Route::post('new/add-entry/', [FrontController::class, 'addEntry'])->name('addEntry');
+// AUTH
+Route::post('login',[AuthController::class,'login'])->name('login');
+Route::post('signin',[AuthController::class,'signUp'])->name('signUp');
