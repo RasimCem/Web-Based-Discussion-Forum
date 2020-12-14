@@ -23,7 +23,7 @@
     <body>
         <div class="navbar">
             <div class="items">
-                <a href="" class="item">Home</a>
+            <a href="{{route('home')}}" class="item">Home </a>
                 <div class="dropdown">
                     <a href="javascript:void(0)"  class="item">Categories <i class="fas fa-arrow-down"></i></a>
                     <div class="dropdowncontent" >
@@ -47,20 +47,24 @@
                     </div>
                 </div>
                 <div class="right">   
-                <a href="" class="item ">Profile  <img class="user-img" src="{{url('/images/user-logo.png')}}" alt=""></a>
+                    @if (Auth::user())
+                <a href="{{route('showProfile')}}" class="item ">{{Str::limit(auth()->user()->name,1,".").auth()->user()->surname}}  <img class="user-img"
+                    @if (Auth::user()->image)
+                        src="{{url('/storage/images/'.Auth::user()->image)}}" 
+                    @else 
+                       src="{{url('/images/user-logo.png')}}"
+                    @endif                      
+                     alt=""></a>
                     <a href="{{route('newEntry')}}" class="item "><i class="fas fa-plus"></i></a> 
-                    <a href="" class="item "><i class="fas fa-sign-out-alt"></i></a> 
+                    <a href="{{route('logout')}}" class="item "><i class="fas fa-sign-out-alt"></i></a> 
+                    @else
                     <a href="#" id="signIn" class="item ">Sign In</a>
+                    @endif
                     <a href="javascript:void(0)" class="item toggle"> <i class="fas fa-bars"></i>  </a>
                 </div>
             </div>
         </div>
 @yield('content')
-        @if (Auth::check()) 
-            @php
-                Auth::user();
-            @endphp
-        @endif
       {{-- FOOTER --}}
         <div class="footer">
             <div class="footer-content">
@@ -96,7 +100,7 @@
                     </div>
                     <div class="modal-form-input">
                         <label > Password </label>
-                         <input name="password" type="mail">
+                         <input name="password" type="password">
                     </div>
                         <input class="btn btn-success" value="Login" type="submit">
                  </form>

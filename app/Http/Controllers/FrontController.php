@@ -7,6 +7,10 @@ use App\Models\Category;
 use App\Models\Entry;
 class FrontController extends Controller
 {
+    public function home(){
+        $entries=Entry::all();
+        return view('home',compact('entries'));
+    }
     public function showEntry(){
         $category = Category::all();
          return view('newEntry')->with('category',$category);
@@ -24,7 +28,7 @@ class FrontController extends Controller
                     "title"=> $request->title,
                     "entry"=>$request->entry,
                     "category_id"=>$request->category,
-                    "user_id"=> 999999
+                    "user_id"=> auth()->user()->id
                 ]
             );
             if($product){

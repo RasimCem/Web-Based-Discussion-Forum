@@ -4,15 +4,34 @@
     <div class="profile">
     <h1 class="profile-title">Profile</h1>
         <div class="profile-page">
-                <img  class="profile-img" src="{{url('/images/user-logo.png')}}" alt="">
+            <form action="{{route('updateProfile')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <img  class="profile-img"
+                @if ($user->image)
+                    src="{{url("/storage/images/".$user->image)}}"
+                @else
+                     src="{{url('/images/user-logo.png')}}" 
+                @endif
+                alt="">
                 <div class="profile-detail">
                     <label >User Mail </label>
-                     <input type="mail">
+                     <input name="mail" value="{{$user->email}}" type="mail">
                 </div>
                 <div class="profile-detail">
-                    <label >User Full Name </label>
-                     <input type="mail">
+                    <label >User  Name </label>
+                     <input name="name" value="{{$user->name}} " type="mail">
                 </div>
+                <div class="profile-detail">
+                    <label >User SurName </label>
+                     <input name="surname" value="{{$user->surname}}" type="mail">
+                </div>
+                <div class="profile-detail">
+                    <label >Select Profile Picture </label>
+                     <input name="pic" type="file">
+                </div>
+                <input type="hidden" value="{{$user->id}}" name="id">
+                <input class="btn btn-success btn-lg" value="Save the Changes" type="submit">
+            </form>
         </div>
     </div>
     <div class="profile">
@@ -24,30 +43,16 @@
                     <th>My Entry</th>
                     <th>View </th>
                 </tr>
-                <tr>
-                    <td>12.03.2020</td>
-                    <td>Basbakanin Bakani</td>
-                    <td>Bakanin bakani olmaz!</td>
-                    <td>
-                        <input class="btn btn-info" type="submit" value=" Go To Entry">
-                    </td>
-                </tr>
-                <tr>
-                    <td>12.03.2020</td>
-                    <td>Basbakanin Bakani</td>
-                    <td>Bakanin bakani olmaz!</td>
-                    <td>
-                        <input class="btn btn-info" type="submit" value="Go To Entry">
-                    </td>
-                </tr>
-                <tr>
-                    <td>12.03.2020</td>
-                    <td>Basbakanin Bakani</td>
-                    <td>Bakanin bakani olmaz!</td>
-                    <td>
-                        <input class="btn btn-info" type="submit" value="Go To Entry">
-                    </td>
-                </tr>
+                @foreach ($entries as $entry)
+                    <tr>
+                        <td>{{$entry->created_at}}</td>
+                        <td>{{Str::substr($entry->title,0,8)}}...</td>
+                        <td> {{Str::substr($entry->entry,0,30)}}...</td>
+                        <td>
+                            <input class="btn btn-info" type="submit" value="Go To Entry">
+                        </td>
+                    </tr>
+                @endforeach
             </table>
         </div>
         <div class="profile-extra">
@@ -60,18 +65,19 @@
       <div class="modal-contents">
           <div class="signIn">
               <h2 style="text-align: center">Change Password</h2><hr>
-              <form action="" method="POST">
+              <form action="{{route('passUpdate')}}" method="POST">
+                @csrf
                   <div class="modal-form-input">
                       <label > Current Pass.</label>
-                       <input id="focus" type="password">
+                       <input name="oldpass" id="focus" type="password">
                   </div>
                   <div class="modal-form-input">
                     <label > New Pass.</label>
-                     <input id="focus" type="password">
+                     <input name="newpass" id="focus" type="password">
                 </div>
                 <div class="modal-form-input">
                     <label > New Pass.</label>
-                     <input id="focus" type="password">
+                     <input  name="newpass2" id="focus" type="password">
                 </div>
                       <input class="btn btn-success" value="Login" type="submit">
                </form>

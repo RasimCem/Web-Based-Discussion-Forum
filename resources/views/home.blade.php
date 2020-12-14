@@ -15,57 +15,14 @@
             </div>
             <div class="entries">
                 <h2>Some Entries</h2>
+                @foreach ($entries as $entry)
                     <div class="entry">
-                       <a href="#"> 
-                           <h3>Title</h3>
-                            <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
+                        <a href="#"> 
+                            <h3>{{$entry->title}}</h3>
+                            <p>{{$entry->entry}}<span>{{$entry->getCategory["id"]}}</span>  </p>
                         </a>
-                    </div>
-                    <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>
-                     <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>              <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>              <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>              <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>
-                     <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.  lorem <span>sport</span>  </p>
-                         </a>
-                     </div>
-                    <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.   <span>gamesss</span> </p>
-                         </a>
-                     </div>
-                     <div class="entry">
-                        <a href="#"> 
-                            <h3>Title</h3>
-                             <p>Lorem ipsum dolor sit amet.   <span>gamesss</span> </p>
-                         </a>
-                     </div>
+                    </div> 
+                @endforeach
             </div>
         </div>
 @endsection

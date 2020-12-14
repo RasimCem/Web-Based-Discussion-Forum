@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    public function getEntry(){
+        return $this->hasMany('Entry','category_id','id');
+    }
     use HasFactory;
 }
