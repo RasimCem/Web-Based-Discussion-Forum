@@ -19,7 +19,7 @@
                     <div class="entry">
                         <a href="#"> 
                             <h3>{{$entry->title}}</h3>
-                            <p>{{$entry->entry}}<span>{{$entry->getCategory["id"]}}</span>  </p>
+                            <p>{{$entry->entry}}<span>{{$entry->getCategory}}</span>  </p>
                         </a>
                     </div> 
                 @endforeach
