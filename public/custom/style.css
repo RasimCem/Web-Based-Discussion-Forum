@@ -37,6 +37,7 @@ a{
     }
 }
 .item{
+    display: block;
     margin: 7px 12px;
     padding: 8px;
     color:#fff;
@@ -73,7 +74,7 @@ a{
 }
 .dropdownitem a {
     font-size: 1.1rem;
-    color: #fff ;
+    color: #fff  !important;
 }
 .dropicon{
     margin-left: 5px;
@@ -81,6 +82,7 @@ a{
 .right{
     margin-left: auto;
     display: flex;
+    align-items: center;
 }
 .user-img{
     width: 38px;
@@ -171,6 +173,7 @@ a{
 }
 .side-bar{
     width: 20%;
+    height: 490px;
     max-height: 550px;
     overflow: hidden;
     margin: 25px;
@@ -321,7 +324,7 @@ a{
    font-size: 1rem !important;
    color: #454545;
 }
-.profile-detail input, .modal-form-input input, .profile-detail select, .profile-detail textarea{
+.profile-detail input, .modal-form-input input, .profile-detail select,  textarea{
     width: 70%;
     outline: none;
     border: 1px solid #AE6B83;

@@ -13,7 +13,7 @@ class ProfileController extends Controller
         $id=Auth::id();
         $user=User::find($id);
         $entries = Entry::where('user_id',$id)->get();
-        return view('profile',compact('user','entries'));
+        return view('user-panel.profile',compact('user','entries'));
     }
     public function passUpdate(Request $request){
         $request->validate([

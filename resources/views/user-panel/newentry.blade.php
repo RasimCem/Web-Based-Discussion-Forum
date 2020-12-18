@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user-panel.layout')
 @section('content')
     {{-- CONTENT --}}
     <div class="newEntry">

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('user-panel.layout')
 @section('content')
     {{-- CONTENT --}}
     <div class="profile">
@@ -49,7 +49,7 @@
                         <td>{{Str::substr($entry->title,0,8)}}...</td>
                         <td> {{Str::substr($entry->entry,0,30)}}...</td>
                         <td>
-                            <input class="btn btn-info" type="submit" value="Go To Entry">
+                            <a href="{{route('goToEntry',$entry->id)}}"><input class="btn btn-info" type="submit" value="Go To Entry"></a>
                         </td>
                     </tr>
                 @endforeach

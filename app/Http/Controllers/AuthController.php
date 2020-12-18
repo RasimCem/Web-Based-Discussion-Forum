@@ -11,6 +11,10 @@ class AuthController extends Controller
     public function login(Request $request){
         $credentials=$request->only(['email','password']);
         if(Auth::attempt($credentials)){
+            $isAdmin=User::where('email',$request->email)->first();
+            if(strcmp($isAdmin->role,"admin")==0){
+                return redirect()->route('adminHomePage')->with('success','Logged IN!');
+            }
             return back()->with('success','Logged IN!');
         }
             return back()->with('error','User Not Found!');
@@ -36,7 +40,8 @@ class AuthController extends Controller
                     "email" => $request->mail,
                     "name" => $request->name,
                     "surname" => $request->surname,
-                    "password" => $hashedPassword
+                    "password" => $hashedPassword,
+                    "role"=>"user"
                ]
                );
                //dd($credentials);

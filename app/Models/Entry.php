@@ -15,4 +15,10 @@ class Entry extends Model
     public function getCategory(){
         return $this->hasOne(Category::class,'id','category_id');
     }
+    public function getSubEntries(){
+        return $this->hasMany(SubEntry::class,'main_entry_id','id');
+    }
+    public function countSubEntries(){
+        return $this->hasMany(SubEntry::class,'main_entry_id','id')->count();
+    }
 }

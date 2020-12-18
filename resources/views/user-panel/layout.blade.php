@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>@yield('title')</title>
     <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="/custom/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
@@ -18,7 +18,7 @@
     <!-- Semantic UI theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
     <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link href="/css/app.css" rel="stylesheet"/>
     </head>
     <body>
         <div class="navbar">
@@ -31,32 +31,25 @@
                             <li style="text-align: center">
                                 <i class="fas fa-arrow-down " style="color:#fff"></i>
                             </li>
-                            <li class="dropdownitem">
-                                <a href="">New <i class="fab fa-hotjar dropicon"></i></a> 
-                            </li>
-                            <li class="dropdownitem">
-                                <a href="">Sport <i class="fas fa-baseball-ball dropicon"></i></a>
-                            </li>
-                            <li class="dropdownitem">
-                               <a href="">Hardware</a>
-                            </li>
-                            <li class="dropdownitem">
-                                <a href="">Software</a>
-                             </li>
+                            @foreach ($allcategories as $item)
+                                <li class="dropdownitem">
+                                    <a href="{{route('goToCategory',$item['id'])}}">{{$item['name']}} <i class="{{$item['category_icon']}}"></i></a> 
+                                </li>
+                            @endforeach
                         </ul>                 
                     </div>
                 </div>
                 <div class="right">   
                     @if (Auth::user())
-                <a href="{{route('showProfile')}}" class="item ">{{Str::limit(auth()->user()->name,1,".").auth()->user()->surname}}  <img class="user-img"
+                <a href="{{route('showProfile')}}" class="item ">{{Str::limit(auth()->user()->name,1,".").Str::limit(auth()->user()->surname,6,'.')}}  <img class="user-img"
                     @if (Auth::user()->image)
                         src="{{url('/storage/images/'.Auth::user()->image)}}" 
                     @else 
                        src="{{url('/images/user-logo.png')}}"
                     @endif                      
                      alt=""></a>
-                    <a href="{{route('newEntry')}}" class="item "><i class="fas fa-plus"></i></a> 
-                    <a href="{{route('logout')}}" class="item "><i class="fas fa-sign-out-alt"></i></a> 
+                    <a href="{{route('newEntry')}}" class="item"><i class="fas fa-plus"></i></a> 
+                    <a href="{{route('logout')}}" class="item"><i class="fas fa-sign-out-alt"></i></a> 
                     @else
                     <a href="#" id="signIn" class="item ">Sign In</a>
                     @endif
