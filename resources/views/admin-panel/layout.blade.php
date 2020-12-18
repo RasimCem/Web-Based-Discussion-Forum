@@ -38,20 +38,24 @@
                                 <div class="sb-sidenav-menu-heading text-light">@ {{auth()->user()->name}} {{auth()->user()->surname}}</div>
                             @endif
                             <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('displayUsers')}}"  aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Users
                             </a>
                             <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('displayAdmins')}}"  aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
                                 Admin
                             </a>
                             <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('showCategories')}}"  aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-layer-group"></i></div>
                                 Category
                             </a>
-                            <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('displayUsers')}}"  aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('showEntries')}}"  aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-paper-plane"></i></div>
                                 Entries
+                            </a>
+                            <a class="nav-link  ml-2" style="font-size: 18px" href="{{route('logout')}}"  aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                Logout
                             </a>
 
                             {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

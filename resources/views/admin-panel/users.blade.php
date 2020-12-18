@@ -38,8 +38,8 @@
                                         <td>{{$user->surname}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->created_at}}</td>
-                                        <td><button class="btn btn-success">Go</button></td>
-                                        <td><button class="btn btn-danger">Delete</button></td>
+                                        <td><a href="{{route('userEntries',$user->id)}}"><button class="btn btn-success">Go</button></a></td>
+                                        <td><a href="{{route('deleteUser',$user->id)}}"><button class="btn btn-danger">Delete</button></a></td>
                                     </tr>
                             @endforeach
                         </tbody>

@@ -41,12 +41,31 @@ Route::post('/password-update',[ProfileController::class,'passUpdate'])->name('p
 //User
 Route::get('/admin-panel/home-page',[AdminController::class,'homePage'])->name('adminHomePage');
 Route::get('/admin-panel/users',[AdminController::class,'displayUsers'])->name('displayUsers');
+Route::get('/admin-panel/user-delete/{id}',[AdminController::class,'deleteUser'])->name('deleteUser');
+Route::get('/admin-panel/user-entries/{id}',[AdminController::class,'userEntries'])->name('userEntries');
 //Admin 
 Route::get('/admin-panel/admins',[AdminController::class,'displayAdmins'])->name('displayAdmins');
 Route::get('/admin-panel/new-admin',[AdminController::class,'newAdmin'])->name('newAdmin');
 Route::post('/admin-panel/add-new-admin',[AdminController::class,'addNewAdmin'])->name('addNewAdmin');
 // Category
 Route::get('/admin-panel/categories',[AdminController::class,'showCategories'])->name('showCategories');
+Route::get('/admin-panel/new-category',[AdminController::class,'newCategory'])->name('newCategory');
+Route::post('/admin-panel/add-new-category',[AdminController::class,'addNewCategory'])->name('addNewCategory');
+Route::get('/admin-panel/edit-category/{id}',[AdminController::class,'editCategory'])->name('editCategory');
+Route::put('/admin-panel/update-category/{id}',[AdminController::class,'updateCategory'])->name('updateCategory');
+Route::get('/admin-panel/delete-category/{id}',[AdminController::class,'deleteCategory'])->name('deleteCategory');
+//ENTRY
+Route::get('/admin-panel/entries',[AdminController::class,'showEntries'])->name('showEntries');
+Route::get('/admin-panel/delete-entry/{id}',[AdminController::class,'deleteEntry'])->name('deleteEntry');
+Route::get('/admin-panel/delete-entry/{id}',[AdminController::class,'deleteEntry'])->name('deleteEntry');
+Route::get('/admin-panel/delete-subentry/{id}',[AdminController::class,'deleteSubEntry'])->name('deleteSubEntry');
+Route::get('/admin-panel/entry-subentry/{id}',[AdminController::class,'goToSubEntry'])->name('goToSubEntry');
+
+
+
+
+
+
 
 
 

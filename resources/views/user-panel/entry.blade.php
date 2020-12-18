@@ -10,7 +10,7 @@
                 <div class="entry-box clearfix">
                     <div class="left">
                         <img class="user-img" src="{{url('/images/user-logo.png')}}" alt="">
-                        <div class="entry-author">{{$entry->getUser['name']}}</div>
+                        <div class="entry-author">{{Str::limit($entry->getUser['name'],1,'.')}} {{Str::limit($entry->getUser['surname'],6,'.')}}</div>
                         <small class="entry-date">{{Str::limit($entry->created_at,10,'')}}</small>
                     </div>
                     <div style="margin:auto auto;width:90%;margin-left:60px;">

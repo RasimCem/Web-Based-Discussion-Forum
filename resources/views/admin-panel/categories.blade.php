@@ -9,6 +9,9 @@
                 <i class="fas fa-table mr-1"></i>
                 Category Records
             </div>
+            <div style="text-align: right" class="mt-2 mr-4">
+                <a href="{{route('newCategory')}}"><button class="btn btn-success">Add New Category</button></a>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -26,9 +29,9 @@
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->name}}</td>
-                                        <td>{{$category->category_icon}}</td>
-                                        <td><button class="btn btn-success">Go</button></td>
-                                        <td><button class="btn btn-danger">Delete</button></td>
+                                        <td><i class="{{$category->category_icon}} fa-2x"></i></td>
+                                        <td><a href="{{route('editCategory',$category->id)}}"><button class="btn btn-success">Go</button></a></td>
+                                        <td><a href="{{route('deleteCategory',$category->id)}}"><button class="btn btn-danger">Delete</button></a></td>
                                     </tr>
                             @endforeach
                         </tbody>

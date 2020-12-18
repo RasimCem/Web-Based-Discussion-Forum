@@ -13,4 +13,7 @@ class SubEntry extends Model
     public function getUser(){
         return $this->hasOne(User::class,'id','user_id');
     }
+    public function getEntry(){
+        return $this->hasOne(Entry::class,'id','main_entry_id');
+    }
 }

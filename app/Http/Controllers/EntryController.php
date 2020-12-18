@@ -21,7 +21,7 @@ class EntryController extends Controller
                     'category' => 'required'
                 ]
             );
-            $product = Entry::insert(
+            $product = Entry::create(
                 [
                     "title"=> $request->title,
                     "entry"=>$request->entry,
@@ -30,7 +30,7 @@ class EntryController extends Controller
                 ]
             );
             if($product){
-                return back()->with('success','Entry Added Successfully!');
+                return redirect()->route('home')->with('success','Entry Added Successfully!');
             }
                 return back()->with('error'.'Error When Adding Entry!');
     }
