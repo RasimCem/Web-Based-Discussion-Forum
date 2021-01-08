@@ -21,7 +21,7 @@ class EntryController extends Controller
                     'category' => 'required'
                 ]
             );
-            $product = Entry::create(
+            $entry = Entry::create(
                 [
                     "title"=> $request->title,
                     "entry"=>$request->entry,
@@ -29,7 +29,7 @@ class EntryController extends Controller
                     "user_id"=> auth()->user()->id
                 ]
             );
-            if($product){
+            if($entry){
                 return redirect()->route('home')->with('success','Entry Added Successfully!');
             }
                 return back()->with('error'.'Error When Adding Entry!');
@@ -56,5 +56,20 @@ class EntryController extends Controller
             return back()->with('success','Your Entry Added Successfully!');
         }
             return back()->with('error','Entry ERROR!');
+    }
+    public function deleteMySubEntry($id){
+        $delete=SubEntry::where('id',$id)->delete();
+        if($delete){
+            return back()->with('success','SubEntry removed!');
+        }
+        return back()->with('error','SubEntry removing ERROR!');
+    }
+    public function deleteMyEntry($entry_id){
+        $delete=Entry::find($entry_id)->delete();
+         SubEntry::where('main_entry_id',$entry_id)->delete();
+        if($delete){
+            return back()->with('success','Entry removed!');
+        }
+        return back()->with('error','Entry removing ERROR!');
     }
 }

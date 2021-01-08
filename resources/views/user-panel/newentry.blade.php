@@ -1,5 +1,6 @@
 @extends('user-panel.layout')
 @section('content')
+@section('title',"New Entry")
     {{-- CONTENT --}}
     <div class="newEntry">
     <h1 class="newEntry-title">Add New Entry</h1>

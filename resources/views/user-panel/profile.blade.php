@@ -1,5 +1,6 @@
 @extends('user-panel.layout')
 @section('content')
+@section('title',"Profile Page")
     {{-- CONTENT --}}
     <div class="profile">
     <h1 class="profile-title">Profile</h1>
@@ -41,15 +42,16 @@
                     <th>Date</th>
                     <th>Title</th>
                     <th>My Entry</th>
-                    <th>View </th>
+                    <th> Operations </th>
                 </tr>
                 @foreach ($entries as $entry)
                     <tr>
-                        <td>{{$entry->created_at}}</td>
+                        <td>{{$entry->created_at}}</td> 
                         <td>{{Str::substr($entry->title,0,8)}}...</td>
                         <td> {{Str::substr($entry->entry,0,30)}}...</td>
                         <td>
-                            <a href="{{route('goToEntry',$entry->id)}}"><input class="btn btn-info" type="submit" value="Go To Entry"></a>
+                            <a class="text-info m-2" href="{{route('goToEntry',$entry->id)}}"><i style="font-size:20px;" class="fas fa-arrow-right"></i></a>
+                            <a class="text-danger m-2" href="{{route('deleteMyEntry',$entry->id)}}"><i style="font-size:20px;" class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 @endforeach

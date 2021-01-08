@@ -7,9 +7,15 @@
             <x-sidebar ></x-sidebar>
             <div class="entry-container">
                 <h2>{{$entry->title}}</h2>
-                <div class="entry-box clearfix">
+                <div class="entry-box clearfix"> 
                     <div class="left">
-                        <img class="user-img" src="{{url('/images/user-logo.png')}}" alt="">
+                        <img class="user-img" 
+                        @if ($entry->getUser['image'])
+                                src="{{url('/storage/images/'.$entry->getUser['image'])}}"
+                        @else
+                                src="{{url('/images/user-logo.png')}}"
+                        @endif
+                        >
                         <div class="entry-author">{{Str::limit($entry->getUser['name'],1,'.')}} {{Str::limit($entry->getUser['surname'],6,'.')}}</div>
                         <small class="entry-date">{{Str::limit($entry->created_at,10,'')}}</small>
                     </div>
@@ -19,6 +25,13 @@
                 </div>
                 @foreach ($entry->getSubEntries as $sub)
                     <div class="entry-box clearfix">
+                        @if ($sub->getUser['id'] == Auth::user()->id)
+                            <div style="text-align:right !important;">
+                                <a style="font-size: 18px" class="text-danger" href="{{route('deleteMySubEntry',$sub['id'])}}">
+                                    <i class="fas fa-minus-square"></i>
+                                </a>
+                            </div>
+                        @endif
                         <div class="left">
                             <img class="user-img" 
                             @if ($sub->getUser['image'])
