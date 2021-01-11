@@ -170,7 +170,19 @@
                    column.style.flexDirection="column";
                    right.classList.remove("right");
                 }
-            })
+            });
+
+            let targetScroll = window.innerHeight - pageHeader.offsetHeight;
+            window.addEventListener("scroll", () => {
+            const scrollY = this.pageYOffset;
+            if (scrollY > targetScroll) {
+                //animatedUl.classList.add(showBtn);
+                console.log("1");
+            } else {
+                //animatedUl.classList.remove(showBtn);
+                console.log("2");
+            }
+            });
         </script>
 
         <script>

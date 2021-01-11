@@ -25,7 +25,7 @@
                 </div>
                 @foreach ($entry->getSubEntries as $sub)
                     <div class="entry-box clearfix">
-                        @if ($sub->getUser['id'] == Auth::user()->id)
+                        @if (Auth::user() && $sub->getUser['id'] == Auth::user()->id)
                             <div style="text-align:right !important;">
                                 <a style="font-size: 18px" class="text-danger" href="{{route('deleteMySubEntry',$sub['id'])}}">
                                     <i class="fas fa-minus-square"></i>
@@ -40,7 +40,7 @@
                                  src="{{url('/images/user-logo.png')}}"
                             @endif
                              alt="">
-                            <div class="entry-author">{{Str::limit($sub->getUser['name'],1,'.')}} {{Str::limit($sub->getUser['surname'],6,'.')}}</div>
+                            <div class="entry-author">{{Str::limit($sub->getUser['name'],1,'.')}} {{Str::limit($sub->getUser['surname'],5,'.')}}</div>
                             <small class="entry-date">{{Str::limit($sub['created_at'],10,'')}}</small>
                         </div>
                         <div style="margin:auto auto;width:90%;margin-left:60px;">

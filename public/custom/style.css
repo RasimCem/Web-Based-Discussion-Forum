@@ -114,7 +114,7 @@ a{
         font-size: 12px;
     }
 }
-@media screen and  (min-width: 670px){
+@media screen and  (min-width: 669px){
     .toggle{
         display: none;
     }
@@ -404,10 +404,10 @@ a{
 }
 .entry-container h2{
     border-bottom: 1px solid green;
-    padding:5px 20px;
+    padding:5px 20px !important;
 }
 .entry-box{
-    padding: 15px;
+    padding: 15px !important;
     border-bottom: 1px solid purple;
 }
 .entry-author{
@@ -447,7 +447,8 @@ a{
 }
 @media screen and  (max-width: 750px){
     .entry-box div{
-        padding-right: 1rem;
+        padding: 1rem;
+        margin: .3rem;
    }
 }
 /* SignIn SignUp  */

@@ -12,7 +12,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     @if (!empty($subEntries[0]))
-                        <h3>{{$subEntries[0]->getEntry['entry']}}</h3>
+                        <h3>{{$subEntries[0]->getEntry['title']}}</h3>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>

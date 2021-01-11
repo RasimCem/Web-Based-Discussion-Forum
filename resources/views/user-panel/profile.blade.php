@@ -81,7 +81,7 @@
                     <label > New Pass.</label>
                      <input  name="newpass2" id="focus" type="password">
                 </div>
-                      <input class="btn btn-success" value="Login" type="submit">
+                      <input class="btn btn-success" value="Confirm" type="submit">
                </form>
           </div>
       </div>

@@ -29,7 +29,7 @@
                                         <td>{{$entry->entry}}</td>
                                         <td>{{$entry->getUser['email']}}</td>
                                        <td>{{$entry->created_at}}</td>
-                                        <td><a href="{{route('goToSubEntry',$entry->id)}}"><button class="btn btn-success">Go To Comments</button></a></td>
+                                        <td><a href="{{route('goToSubEntry',$entry->id)}}"><button class="btn btn-success">Go </button></a></td>
                                         <td><a href="{{route('deleteEntry',$entry->id)}}"><button class="btn btn-danger">Delete</button></a></td>
                                     </tr>
                             @endforeach
